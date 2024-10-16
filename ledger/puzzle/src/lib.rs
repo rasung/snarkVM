@@ -248,8 +248,9 @@ impl<N: Network> Puzzle<N> {
         }
         println!("===== 444444 =======");
         format!("===== 4444444444 =======")
-        bail!("============ 4444 ============");
-
+        debug!(
+            "====== 444 ========",
+        );
         // Construct the solution.
         Ok(Solution::new(partial_solution, proof_target))
     }
