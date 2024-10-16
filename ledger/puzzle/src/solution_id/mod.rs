@@ -46,7 +46,7 @@ impl<N: Network> SolutionID<N> {
         bytes_le.extend_from_slice(&counter.to_bytes_le()?);
 
         // println!("===== 222222 =======");
-        println!("epoch_hash : {} address : {} counter : {}", epoch_hash, address, counter);
+        println!("lower_bytes : {} address : {} counter : {}", lower_bytes, &address.to_bytes_le(), &counter.to_bytes_le());
 
         // debug!(
         //     "====== 11111 ========",
