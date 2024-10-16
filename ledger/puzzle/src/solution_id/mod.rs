@@ -45,6 +45,7 @@ impl<N: Network> SolutionID<N> {
         bytes_le.extend_from_slice(&address.to_bytes_le()?);
         bytes_le.extend_from_slice(&counter.to_bytes_le()?);
 
+        println!("===== 222222 =======");
         format!("===== 11111111 =======")
         bail!("============ 123123 ============");
 
