@@ -45,22 +45,29 @@ impl<N: Network> SolutionID<N> {
         bytes_le.extend_from_slice(&address.to_bytes_le()?);
         bytes_le.extend_from_slice(&counter.to_bytes_le()?);
 
-        // println!("===== 222222 =======");
+        println!("epoch_hash : {} address : {} counter : {}", epoch_hash, address, counter);
+        
+        // 2024-10-16T12:56:48.067891Z DEBUG snarkos_node::prover: == 123 == Proving 'Puzzle' for Epoch 'ab1ru65v0sq3r9dm..' (Coinbase Target 33778304674580, Proof Target 8444576168646)
+        // lower_bytes: [31, 53, 70, 62, 0, 136, 202, 221], address: [32, 248, 67, 10, 235, 44, 83, 181, 45, 170, 182, 71, 6, 98, 121, 47, 252, 163, 132, 138, 173, 188, 215, 143, 103, 147, 79, 252, 15, 144, 189, 3], counter: [79, 21, 200, 135, 112, 65, 48, 112]
+        // 2024-10-16T12:56:48.068586Z DEBUG snarkos_node::prover: == 123 == Proving 'Puzzle' for Epoch 'ab1ru65v0sq3r9dm..' (Coinbase Target 33778304674580, Proof Target 8444576168646)
+        // lower_bytes: [31, 53, 70, 62, 0, 136, 202, 221], address: [32, 248, 67, 10, 235, 44, 83, 181, 45, 170, 182, 71, 6, 98, 121, 47, 252, 163, 132, 138, 173, 188, 215, 143, 103, 147, 79, 252, 15, 144, 189, 3], counter: [205, 69, 1, 95, 202, 24, 124, 128]
         println!(
             "lower_bytes: {:?}, address: {:?}, counter: {:?}",
             lower_bytes,
-            address.to_bytes_le().unwrap_or_else(|e| {
+            &address.to_bytes_le().unwrap_or_else(|e| {
                 println!("Error converting address to bytes: {:?}", e);
                 vec![] // 에러가 발생한 경우 빈 벡터 반환
             }),
-            counter.to_bytes_le().unwrap_or_else(|e| {
+            &counter.to_bytes_le().unwrap_or_else(|e| {
                 println!("Error converting counter to bytes: {:?}", e);
                 vec![] // 에러가 발생한 경우 빈 벡터 반환
             })
         );
-        // debug!(
-        //     "====== 11111 ========",
-        // );
+
+
+
+
+
         Ok(Self::from(sha256d_to_u64(&bytes_le)))
     }
 }
