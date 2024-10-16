@@ -129,10 +129,6 @@ impl<N: Network> Puzzle<N> {
         ensure!(solution.target() == proof_target, "The proof target does not match the expected proof target");
         // Return the proof target.
         println!("===== 333333 =======");
-        test
-        debug!(
-            "====== 333333333 ========",
-        );
         bail!("============ 333333 ============");
 
         Ok(proof_target)
@@ -248,9 +244,9 @@ impl<N: Network> Puzzle<N> {
             }
         }
         println!("===== 444444 =======");
-        debug!(
-            "====== 444 ========",
-        );
+        // debug!(
+        //     "====== 444 ========",
+        // );
         // Construct the solution.
         Ok(Solution::new(partial_solution, proof_target))
     }
