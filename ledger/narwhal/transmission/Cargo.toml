@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = [ "The Aleo Team <hello@aleo.org>" ]
 description = "A transmission for a Narwhal-style memory pool in a decentralized virtual machine"
 homepage = "https://aleo.org"
-repository = "https://github.com/AleoNet/snarkVM"
+repository = "https://github.com/rasung/snarkVM"
 keywords = [
   "aleo",
   "cryptography",
