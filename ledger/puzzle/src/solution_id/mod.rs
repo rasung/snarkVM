@@ -46,8 +46,18 @@ impl<N: Network> SolutionID<N> {
         bytes_le.extend_from_slice(&counter.to_bytes_le()?);
 
         // println!("===== 222222 =======");
-        println!("lower_bytes : {} address : {} counter : {}", lower_bytes, address.to_bytes_le(), counter.to_bytes_le());
-
+        println!(
+            "lower_bytes: {:?}, address: {:?}, counter: {:?}",
+            lower_bytes,
+            address.to_bytes_le().unwrap_or_else(|e| {
+                println!("Error converting address to bytes: {:?}", e);
+                vec![] // 에러가 발생한 경우 빈 벡터 반환
+            }),
+            counter.to_bytes_le().unwrap_or_else(|e| {
+                println!("Error converting counter to bytes: {:?}", e);
+                vec![] // 에러가 발생한 경우 빈 벡터 반환
+            })
+        );
         // debug!(
         //     "====== 11111 ========",
         // );
