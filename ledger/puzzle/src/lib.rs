@@ -128,6 +128,10 @@ impl<N: Network> Puzzle<N> {
         // Ensure the proof target matches the expected proof target.
         ensure!(solution.target() == proof_target, "The proof target does not match the expected proof target");
         // Return the proof target.
+        println!("===== 333333 =======");
+        format!("===== 3333 =======")
+        bail!("============ 333333 ============");
+
         Ok(proof_target)
     }
 
@@ -240,6 +244,9 @@ impl<N: Network> Puzzle<N> {
                 bail!("Solution was below the minimum proof target ({proof_target} < {minimum_proof_target})")
             }
         }
+        println!("===== 444444 =======");
+        format!("===== 4444444444 =======")
+        bail!("============ 4444 ============");
 
         // Construct the solution.
         Ok(Solution::new(partial_solution, proof_target))
