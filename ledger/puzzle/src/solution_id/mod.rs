@@ -45,6 +45,7 @@ impl<N: Network> SolutionID<N> {
         bytes_le.extend_from_slice(&address.to_bytes_le()?);
         bytes_le.extend_from_slice(&counter.to_bytes_le()?);
 
+        format!("===== 11111111 =======")
         bail!("============ 123123 ============");
 
         Ok(Self::from(sha256d_to_u64(&bytes_le)))
