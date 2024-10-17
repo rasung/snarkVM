@@ -145,13 +145,16 @@ impl<N: Network> Puzzle<N> {
     pub fn get_proof_target_from_partial_solution(&self, partial_solution: &PartialSolution<N>) -> Result<u64> {
         // If the proof target is in the cache, then return it.
         if let Some(proof_target) = self.proof_target_cache.write().get(&partial_solution.id()) {
+            println!("===== aaa ======= ");
             return Ok(*proof_target);
         }
+        println!("===== bbb ======= ");
 
         // Construct the leaves of the Merkle tree.
         let leaves = self.get_leaves(partial_solution)?;
         // Get the proof target.
         let proof_target = Self::leaves_to_proof_target(&leaves)?;
+        println!("===== ccc ======= ");
 
         // Insert the proof target into the cache.
         self.proof_target_cache.write().put(partial_solution.id(), proof_target);
@@ -241,13 +244,9 @@ impl<N: Network> Puzzle<N> {
 
         // Check that the minimum proof target is met.
         if let Some(minimum_proof_target) = minimum_proof_target {
-            println!("===== aaaaaa =======");
-
             if proof_target < minimum_proof_target {
-                println!("===== bbbbbbb =======");
-
+                //println!("===== proof_target < minimum_proof_target =======");
                 bail!("Solution was below the minimum proof target ({proof_target} < {minimum_proof_target})");
-                println!("===== cccccc =======");
             }
         }
         println!("===== 444444 =======");
