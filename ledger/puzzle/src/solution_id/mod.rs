@@ -46,7 +46,7 @@ impl<N: Network> SolutionID<N> {
         bytes_le.extend_from_slice(&counter.to_bytes_le()?);
 
         println!("epoch_hash : {} address : {} counter : {}", epoch_hash, address, counter);
-        
+
         // 2024-10-16T12:56:48.067891Z DEBUG snarkos_node::prover: == 123 == Proving 'Puzzle' for Epoch 'ab1ru65v0sq3r9dm..' (Coinbase Target 33778304674580, Proof Target 8444576168646)
         // lower_bytes: [31, 53, 70, 62, 0, 136, 202, 221], address: [32, 248, 67, 10, 235, 44, 83, 181, 45, 170, 182, 71, 6, 98, 121, 47, 252, 163, 132, 138, 173, 188, 215, 143, 103, 147, 79, 252, 15, 144, 189, 3], counter: [79, 21, 200, 135, 112, 65, 48, 112]
         // 2024-10-16T12:56:48.068586Z DEBUG snarkos_node::prover: == 123 == Proving 'Puzzle' for Epoch 'ab1ru65v0sq3r9dm..' (Coinbase Target 33778304674580, Proof Target 8444576168646)
@@ -65,6 +65,7 @@ impl<N: Network> SolutionID<N> {
         );
 
 
+        println!("sha256d_to_u64(&bytes_le) : {}", sha256d_to_u64(&bytes_le));
 
 
 
