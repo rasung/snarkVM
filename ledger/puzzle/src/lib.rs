@@ -237,7 +237,8 @@ impl<N: Network> Puzzle<N> {
         // Compute the proof target.
         let proof_target = self.get_proof_target_from_partial_solution(&partial_solution)?;
         
-        println!("== 666 == proof_target : {} minimum_proof_target : {}", proof_target, minimum_proof_target);
+        println!("== 666 == proof_target : {:?} minimum_proof_target : {:?}", proof_target.unwrap_or(0), // 값이 없을 경우 0 출력
+        minimum_proof_target.unwrap_or(0));
 
         // Check that the minimum proof target is met.
         if let Some(minimum_proof_target) = minimum_proof_target {
