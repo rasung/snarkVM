@@ -241,7 +241,11 @@ impl<N: Network> Puzzle<N> {
 
         // Check that the minimum proof target is met.
         if let Some(minimum_proof_target) = minimum_proof_target {
+            println!("===== aaaaaa =======");
+
             if proof_target < minimum_proof_target {
+                println!("===== bbbbbbb =======");
+
                 bail!("Solution was below the minimum proof target ({proof_target} < {minimum_proof_target})");
             }
         }
