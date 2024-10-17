@@ -146,6 +146,9 @@ impl<N: Network> Puzzle<N> {
     /// Returns the proof target given the partial solution.
     pub fn get_proof_target_from_partial_solution(&self, partial_solution: &PartialSolution<N>) -> Result<u64> {
         // If the proof target is in the cache, then return it.
+
+        println!("===== bbb ======= &partial_solution.id() : {}", &partial_solution.id());
+
         if let Some(proof_target) = self.proof_target_cache.write().get(&partial_solution.id()) {
             //println!("===== aaa ======= ");
             return Ok(*proof_target);
@@ -247,14 +250,11 @@ impl<N: Network> Puzzle<N> {
         // Check that the minimum proof target is met.
         if let Some(minimum_proof_target) = minimum_proof_target {
             if proof_target < minimum_proof_target {
-                //println!("===== proof_target < minimum_proof_target =======");
                 bail!("Solution was below the minimum proof target ({proof_target} < {minimum_proof_target})");
             }
         }
         println!("===== 444444 =======");
-        // debug!(
-        //     "====== 444 ========",
-        // );
+
         // Construct the solution.
         Ok(Solution::new(partial_solution, proof_target))
     }
