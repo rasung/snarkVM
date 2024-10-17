@@ -128,7 +128,7 @@ impl<N: Network> Puzzle<N> {
         // Ensure the proof target matches the expected proof target.
         ensure!(solution.target() == proof_target, "The proof target does not match the expected proof target");
         // Return the proof target.
-        println!("===== 333333 =======");
+        println!("===== 333333 ======= solution.target() : {} proof_target : {} ", solution.target(), proof_target);
 
         Ok(proof_target)
     }
