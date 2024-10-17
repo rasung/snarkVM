@@ -247,6 +247,7 @@ impl<N: Network> Puzzle<N> {
                 println!("===== bbbbbbb =======");
 
                 bail!("Solution was below the minimum proof target ({proof_target} < {minimum_proof_target})");
+                println!("===== cccccc =======");
             }
         }
         println!("===== 444444 =======");
