@@ -147,10 +147,10 @@ impl<N: Network> Puzzle<N> {
     pub fn get_proof_target_from_partial_solution(&self, partial_solution: &PartialSolution<N>) -> Result<u64> {
         // If the proof target is in the cache, then return it.
 
-        println!("===== bbb ======= &partial_solution.id() : {}", &partial_solution.id());
+        println!("**** &partial_solution.id() : {} ***", &partial_solution.id());
 
         if let Some(proof_target) = self.proof_target_cache.write().get(&partial_solution.id()) {
-            //println!("===== aaa ======= ");
+            println!("AA *proof_target : {}", *proof_target);
             return Ok(*proof_target);
         }
         //println!("===== bbb ======= ");
@@ -163,6 +163,8 @@ impl<N: Network> Puzzle<N> {
 
         // Insert the proof target into the cache.
         self.proof_target_cache.write().put(partial_solution.id(), proof_target);
+        
+        println!("BB proof_target : {}", proof_target);       
         // Return the proof target.
         Ok(proof_target)
     }
