@@ -236,11 +236,13 @@ impl<N: Network> Puzzle<N> {
         let partial_solution = PartialSolution::new(epoch_hash, address, counter)?;
         // Compute the proof target.
         let proof_target = self.get_proof_target_from_partial_solution(&partial_solution)?;
+        
+        println!("== 666 == proof_target : {} minimum_proof_target : {}", proof_target, minimum_proof_target);
+
         // Check that the minimum proof target is met.
         if let Some(minimum_proof_target) = minimum_proof_target {
             if proof_target < minimum_proof_target {
                 bail!("Solution was below the minimum proof target ({proof_target} < {minimum_proof_target})");
-                println!("== 666 == Solution was below the minimum proof target ({} < {})", proof_target, minimum_proof_target);
             }
         }
         println!("===== 444444 =======");
