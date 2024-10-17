@@ -125,6 +125,8 @@ impl<N: Network> Puzzle<N> {
     pub fn get_proof_target(&self, solution: &Solution<N>) -> Result<u64> {
         // Calculate the proof target.
         let proof_target = self.get_proof_target_unchecked(solution)?;
+        println!("===== 22222 ======= solution.target() : {} proof_target : {} ", solution.target(), proof_target);
+
         // Ensure the proof target matches the expected proof target.
         ensure!(solution.target() == proof_target, "The proof target does not match the expected proof target");
         // Return the proof target.
