@@ -282,6 +282,7 @@ impl<N: Network> Puzzle<N> {
         println!("check_solution -> proof_target : {} expected_proof_target : {}", proof_target, expected_proof_target);
 
         if proof_target < expected_proof_target {
+            println!("****** proof_target < expected_proof_target ****");
             bail!("Solution does not meet the proof target requirement ({proof_target} < {expected_proof_target})")
         }
         Ok(())
