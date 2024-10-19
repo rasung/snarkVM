@@ -268,6 +268,9 @@ impl<N: Network> Puzzle<N> {
         expected_epoch_hash: N::BlockHash,
         expected_proof_target: u64,
     ) -> Result<()> {
+        
+        println!("== 34623462346 ==");
+
         // Ensure the epoch hash matches.
         if solution.epoch_hash() != expected_epoch_hash {
             bail!(
