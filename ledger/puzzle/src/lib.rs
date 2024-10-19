@@ -147,7 +147,7 @@ impl<N: Network> Puzzle<N> {
     pub fn get_proof_target_from_partial_solution(&self, partial_solution: &PartialSolution<N>) -> Result<u64> {
         // If the proof target is in the cache, then return it.
 
-        println!("**** &partial_solution.id() : {} ***", &partial_solution.id());
+        println!("partial_solution id : {} ***", &partial_solution.id());
 
         if let Some(proof_target) = self.proof_target_cache.write().get(&partial_solution.id()) {
             println!("AA *proof_target : {}", *proof_target);

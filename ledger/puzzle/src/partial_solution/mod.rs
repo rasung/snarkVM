@@ -38,6 +38,8 @@ impl<N: Network> PartialSolution<N> {
     pub fn new(epoch_hash: N::BlockHash, address: Address<N>, counter: u64) -> Result<Self> {
         // Compute the solution ID.
         let solution_id = SolutionID::new(epoch_hash, address, counter)?;
+        println!("PartialSolution::new() -> SolutionID::new() : {}", solution_id);
+
         // Return the partial solution.
         Ok(Self { solution_id, epoch_hash, address, counter })
     }
