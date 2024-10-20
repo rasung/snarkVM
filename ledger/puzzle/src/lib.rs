@@ -279,12 +279,13 @@ impl<N: Network> Puzzle<N> {
         // Ensure the solution is greater than or equal to the expected proof target.
         let proof_target = self.get_proof_target(solution)?;
 
-        println!("check_solution -> proof_target : {} expected_proof_target : {}", proof_target, expected_proof_target);
-
         if proof_target < expected_proof_target {
-            println!("****** proof_target < expected_proof_target ****");
+            println!("proof_target : {} < expected_proof_target : {}", proof_target, expected_proof_target);
             bail!("Solution does not meet the proof target requirement ({proof_target} < {expected_proof_target})")
         }
+
+        println!("proof_target : {} >= expected_proof_target : {}", proof_target, expected_proof_target);
+
         Ok(())
     }
 
