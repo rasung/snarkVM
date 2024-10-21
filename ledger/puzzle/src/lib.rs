@@ -125,12 +125,12 @@ impl<N: Network> Puzzle<N> {
     pub fn get_proof_target(&self, solution: &Solution<N>) -> Result<u64> {
         // Calculate the proof target.
         let proof_target = self.get_proof_target_unchecked(solution)?;
-        println!("===== 22222 ======= solution.target() : {} proof_target : {} ", solution.target(), proof_target);
+        // println!("===== 22222 ======= solution.target() : {} proof_target : {} ", solution.target(), proof_target);
 
         // Ensure the proof target matches the expected proof target.
         ensure!(solution.target() == proof_target, "The proof target does not match the expected proof target");
         // Return the proof target.
-        println!("===== 333333 ======= solution.target() : {} proof_target : {} ", solution.target(), proof_target);
+        // println!("===== 333333 ======= solution.target() : {} proof_target : {} ", solution.target(), proof_target);
 
         Ok(proof_target)
     }
@@ -164,7 +164,7 @@ impl<N: Network> Puzzle<N> {
         // Insert the proof target into the cache.
         self.proof_target_cache.write().put(partial_solution.id(), proof_target);
         
-        println!("BB proof_target : {}", proof_target);       
+        // println!("BB proof_target : {}", proof_target);       
         // Return the proof target.
         Ok(proof_target)
     }
@@ -247,7 +247,7 @@ impl<N: Network> Puzzle<N> {
         // Compute the proof target.
         let proof_target = self.get_proof_target_from_partial_solution(&partial_solution)?;
         
-        println!("proof_target : {} minimum_proof_target : {}", proof_target, minimum_proof_target.unwrap_or(0));
+        //println!("proof_target : {} minimum_proof_target : {}", proof_target, minimum_proof_target.unwrap_or(0));
 
         // Check that the minimum proof target is met.
         if let Some(minimum_proof_target) = minimum_proof_target {
