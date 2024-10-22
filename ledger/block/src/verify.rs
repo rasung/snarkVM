@@ -355,7 +355,6 @@ impl<N: Network> Block<N> {
 
         // Verify the solutions.
         if let Some(coinbase) = self.solutions.deref() {
-            println!("===== 111 ======= coinbase : {} current_epoch_hash : {} previous_block.proof_target() : {}", coinbase, current_epoch_hash, previous_block.proof_target());
 
             // Ensure the puzzle proof is valid.
             if let Err(e) = current_puzzle.check_solutions(coinbase, current_epoch_hash, previous_block.proof_target())
